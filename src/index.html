@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+  Archivo principal del portfolio de Joni_5.
+  Se apoya en Tailwind CDN para maquetado rápido y fuentes de Google.
+  Los comentarios explican la estructura y las partes menos obvias del código.
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joni_5 | Jonatan I. Caballero Pérez · Técnico de Sonido</title>
+  <!-- Tailwind CSS (versión CDN, suficiente para un sitio estático ligero) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fuentes Google. Kalam: título informal; Karla: encabezados; Inter: cuerpo. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Karla:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      Variables CSS globales para que sea fácil cambiar la familia tipográfica
+      desde cualquier parte del documento.
+    */
+    :root{
+      --font-title:'Kalam',cursive;
+      --font-heading:'Karla',sans-serif;
+      --font-body:'Inter',sans-serif;
+    }
+    /* Asignamos las fuentes a cada jerarquía */
+    h1{font-family:var(--font-title);}/* Nombre artístico */
+    h2,h3{font-family:var(--font-heading);}/* Encabezados secciones */
+    body{
+      font-family:var(--font-body);
+      scroll-behavior:smooth;/* desplazamiento suave entre anclas */
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- ===================== NAVBAR ===================== -->
+  <!--
+    Cabecera fija: nombre (Joni_5) + menú ancla.
+    En móviles el <nav> se esconde y se abre con "burger".
+  -->
+  <header class="fixed w-full bg-black/90 text-white shadow-lg z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="#inicio" class="text-2xl" style="font-family:var(--font-title);">Joni_5</a>
+      <!--
+        Menú de anclas. Se oculta en mobile con `hidden md:flex` y se muestra vía script.
+      -->
+      <nav id="nav" class="hidden md:flex gap-6 text-sm uppercase tracking-wider" style="font-family:var(--font-heading);">
+        <a href="#sobre" class="hover:text-amber-400">Sobre mí</a>
+        <a href="#experiencia" class="hover:text-amber-400">Trayectoria</a>
+        <a href="#servicios" class="hover:text-amber-400">Servicios</a>
+        <a href="#equipos" class="hover:text-amber-400">Equipos</a>
+        <a href="#galeria" class="hover:text-amber-400">Galería</a>
+        <a href="#formacion" class="hover:text-amber-400">Formación</a>
+        <a href="#contacto" class="hover:text-amber-400">Contacto</a>
+      </nav>
+      <!-- Botón hamburguesa solo visible en < md -->
+      <button id="burger" class="md:hidden" onclick="document.getElementById('nav').classList.toggle('hidden')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <!--
+    Sección pantalla completa con imagen de fondo.
+    `style="background-image:url('images/fondo-1.jpg');"` usa la foto que subas al hosting.
+    Sombra negra semitransparente para mejorar contraste del texto.
+  -->
+  <section id="inicio" class="h-screen flex items-center justify-center bg-center bg-cover relative" style="background-image:url('images/fondo-1.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative text-center text-white px-4">
+      <!-- Nombre artístico y nombre legal -->
+      <h1 class="text-6xl md:text-8xl mb-1">Joni_5</h1>
+      <p class="text-xl md:text-2xl font-semibold" style="font-family:var(--font-heading);">Jonatan I. Caballero Pérez</p>
+      <!-- Especialidades clave -->
+      <p class="max-w-2xl mx-auto mt-2">FOH · Diseño y Ajuste de Sistemas · Monitores · RF · Backline</p>
+      <!-- Botón CTA -->
+      <a href="#contacto" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-black font-semibold px-10 py-3 rounded-full shadow-lg transition" style="font-family:var(--font-heading);">Contrátame</a>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE MÍ ===================== -->
+  <section id="sobre" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-0 max-w-4xl">
+      <h2 class="text-4xl font-bold mb-6">¿Quién es Joni_5?</h2>
+      <!-- Historia breve; se podría extraer a CMS si fuese necesario -->
+      <p class="mb-4 leading-relaxed">Mi primera mezcla la hice en <strong>2008</strong> (monitores en Sonorama)...</p>
+      <p class="mb-4 leading-relaxed">Tras mis inicios en teatros y salas de Madrid, en 2010 me mudé a <strong>Barcelona</strong>...</p>
+      <p class="leading-relaxed">Hoy vuelvo a Madrid con más de <strong>1 000 shows</strong> a la espalda...</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCIA (Timeline) ===================== -->
+  <!--
+    La barra lateral izquierda se crea con `border-l-2`. Cada bloque es un período.
+  -->
+  <section id="experiencia" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 md:px-0 max-w-5xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Trayectoria</h2>
+      <div class="relative border-l-2 border-amber-500 pl-6 space-y-10">
+        <!-- Periodo actual -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2020 – Presente · Freelance (Madrid)</h3>
+          <p class="text-sm text-gray-700 mb-1">Albadalejo, Dushow, AV‑Medios, Fluge, Spirox Sound…</p>
+          <p class="text-gray-600">FOH y diseño/ajuste de sistemas...</p>
+        </div>
+        <!-- Barcelona -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2010 – 2020 · Freelance (Barcelona)</h3>
+          <p class="text-sm text-gray-700 mb-1">FYR‑Screen, BlackAudio...</p>
+          <p class="text-gray-600">FOH en clubs, ajuste Maremagnum, etc.</p>
+        </div>
+        <!-- Máster + teatros -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2014 – 2015 · Madrid (Trade & Teatros)</h3>
+          <p class="text-gray-600">Máster + responsable RF en musicales...</p>
+        </div>
+        <!-- Inicios -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2003 – 2010 · Inicios</h3>
+          <p class="text-gray-600">Escenario y patch en Sonorama, etc.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <!--
+    Grid de 4 tarjetas. Se adapta: 2 col en md, 4 col en lg.
+  -->
+  <section id="servicios" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-0 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">¿Qué puedo hacer por tu show?</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Tarjeta 1 -->
+        <div class="bg-gray-50 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-2">FOH & Diseño/Ajuste de PA</h3>
+          <p>Mezcla en vivo, predicción y alineado con Smaart, RiTA y ArrayCalc.</p>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="bg-gray-50 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-2">Monitores & RF</h3>
+          <p>In‑ear, wedges y coordinación de espectros multicanal.</p>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="bg-gray-50 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-2">Técnico de escenario / microfonista</h3>
+          <p>Patcheo de cambios rápidos y rigging de PAs.</p>
+        </div>
+        <!-- Tarjeta 4 -->
+        <div class="bg-gray-50 p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-semibold mb-2">Técnico en Electrónica</h3>
+          <p>Diagnóstico y reparaciones (FP‑Superior 2024).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EQUIPOS ===================== -->
+  <section id="equipos" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 md:px-0 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Gear que domino</h2>
+      <!--
+        Tres columnas (lg) de listas. Cada <ul> agrupa un bloque lógico.
+      -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm leading-6">
+        <!-- Sistemas / Mesas -->
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Sistemas:</strong> d&b T/Y/V/J/GSL‑KSL, L‑Acoustics K1‑K2...</li>
+          <li><strong>Mesas:</strong> Yamaha CL/QL/DM7, Digico SD...</li>
+        </ul>
+        <!-- Procesadores / Medición -->
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Procesadores & control:</strong> Lake, Galileo, ArmoníaPlus...</li>
+          <li><strong>Medición / Ajuste:</strong> Smaart v8, RiTA, MAPP 3D...</li>
+        </ul>
+        <!-- RF / Certificaciones -->
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Radiofrecuencia:</strong> Wireless Workbench 7, WSM...</li>
+          <li><strong>Certificaciones:</strong> Dante Nivel 1‑2‑3, d&b ArrayCalc & R1...</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERÍA ===================== -->
+  <!--
+    En producción remplaza los <template> por <figure> con la ruta real de la imagen.
+    Un lightbox se puede añadir más tarde usando e.g. Micromodal o basic‑lightbox.
+  -->
+  <section id="galeria" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-0 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Momentos 📸</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- plantilla clonable por JS si algún día automatizamos la galería -->
+        <template id="foto-template">
+          <figure class="relative group">
+            <img src="" alt="" class="rounded-xl shadow object-cover h-48 w-full"/>
+            <figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition"></figcaption>
+          </figure>
+        </template>
+      </div>
+      <p class="text-center text-sm text-gray-600 mt-6">(Las imágenes se cargarán al subir la carpeta <code>images/</code> al hosting definitivo)</p>
+    </div>
+  </section>
+
+  <!-- ===================== FORMACIÓN ===================== -->
+  <section id="formacion" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 md:px-0 max-w-4xl">
+      <h2 class="text-4xl font-bold mb-6">Formación & Certificaciones</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>CFGS Mantenimiento Electrónico (2022‑2024)</li>
+        <li>Máster en Sonido Directo (Trade‑Fluge, 2015)</li>
+        <li>CFGS Sonido para Espectáculos (Puerta Bonita, 2005)</li>
+        <li>Certificaciones Dante N1‑3, d&b ArrayCalc & R1, Powersoft ArmoníaPlus, Lake Controller…</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-0 max-w-3xl">
+      <h2 class="text-4xl font-bold mb-6 text-center">Hablemos 👋</h2>
+      <!-- Formulario mailto (válido para sitios estáticos) -->
+      <form action="mailto:jocabpe@hotmail.es" method="post" enctype="text/plain" class="space-y-4" style="font-family:var(--font-heading);">
+        <input type="text" name="nombre" placeholder="Nombre" required class="w-full p-3 rounded-lg border"/>
+        <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded-lg border"/>
+        <textarea name="mensaje" rows="5" placeholder="Cuéntame tu proyecto…" class="w-full p-3 rounded-lg border"></textarea>
+        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg shadow-lg transition">Enviar</button>
+      </form>
+      <p class="text-center text-sm text-gray-600 mt-4">También en <a href="https://www.linkedin.com/in/yourprofile" class="underline">LinkedIn</a> • Tel. <strong>+34 672 597 553</strong></p>
+      <p class="text-center text-xs text-gray-400 mt-2">© 2025 Jonatan I. Caballero Pérez</p>
+    </div>
+  </section>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    /*
+      Cierra el menú en móvil tras hacer clic en un enlace.
+      No se usa librería externa para mantener el sitio totalmente estático.
+    */
+    document.querySelectorAll('nav a').forEach(a=>
+      a.addEventListener('click',()=>document.getElementById('nav').classList.add('hidden')));
+  </script>
+</body>
+</html>
