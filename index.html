@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--
+  Portfolio de Joni_5 (Jonatan I. Caballero Pérez)
+  ----------------------------------------------
+  ▸ Diseñado para GitHub Pages (solo arrastrar/carpetas).  
+  ▸ Tailwind CDN para maquetado rápido; Google Fonts para la tipografía.  
+  ▸ Comentarios abundantes para que puedas activar/desactivar bloques (p. ej. logo ↔ texto).
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joni_5 | Jonatan I. Caballero Pérez · Técnico de Sonido</title>
+
+  <!-- Tailwind (no instalación → perfecto para GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Karla:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* === Variables globales === */
+    :root{
+      --font-title:"Kalam",cursive;   /* Marca "Joni_5" */
+      --font-heading:"Karla",sans-serif; /* H2-H3 */
+      --font-body:"Inter",sans-serif;    /* Párrafos */
+      --hero-overlay:rgba(0,0,0,0.65);    /* Opacidad de oscurecido (ajusta a tu gusto) */
+    }
+    h1{font-family:var(--font-title);}  
+    h2,h3{font-family:var(--font-heading);}  
+    body{font-family:var(--font-body);scroll-behavior:smooth;}
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+  <!-- =====================================================
+       BARRA DE NAVEGACIÓN
+       - Opción logo.png   👉  descomenta <img> y comenta el <a> con texto.
+       - Opción texto      👉  deja como está.
+  ====================================================== -->
+  <header class="fixed w-full bg-black/90 text-white shadow-lg z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <!-- Marca -->
+      <!-- Opción A · Texto (activo) -->
+      <a href="#inicio" class="text-2xl" style="font-family:var(--font-title);">Joni_5</a>
+      
+      <!-- Opción B · Logo PNG (descomenta para activarlo) -->
+      <!-- 
+      <a href="#inicio" class="block w-32"> 
+        <img src="images/logo.png" alt="Logo Joni_5" class="w-full" />
+      </a> 
+      -->
+
+      <!-- Menú ancla -->
+      <nav id="nav" class="hidden md:flex gap-6 text-sm uppercase tracking-wider" style="font-family:var(--font-heading);">
+        <a href="#sobre"       class="hover:text-amber-400">Sobre mí</a>
+        <a href="#experiencia" class="hover:text-amber-400">Trayectoria</a>
+        <a href="#servicios"   class="hover:text-amber-400">Servicios</a>
+        <a href="#equipos"     class="hover:text-amber-400">Equipos</a>
+        <a href="#galeria"     class="hover:text-amber-400">Galería</a>
+        <a href="#formacion"   class="hover:text-amber-400">Formación</a>
+        <a href="docs/C.V. Jonatan Caballero-Madrid'25.pdf" target="_blank" class="hover:text-amber-400">
+            CV&nbsp;PDF
+          </a>          
+        <a href="#contacto"    class="hover:text-amber-400">Contacto</a>
+        <a href="#extras" class="hover:text-amber-400">Extras</a>
+      </nav>
+
+      <!-- Icono hamburguesa -->
+      <button id="burger" class="md:hidden" onclick="document.getElementById('nav').classList.toggle('hidden')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       HERO (pantalla completa con fondo-1.jpg)
+       - Oscurecimiento controlado por la variable --hero-overlay.
+  ====================================================== -->
+  <section id="inicio" class="h-screen flex items-center justify-center bg-center bg-cover relative" style="background-image:url('images/fondo-1.jpg');">
+    <div class="absolute inset-0" style="background:var(--hero-overlay);"></div>
+    <div class="relative text-center text-white px-4">
+      <h1 class="text-6xl md:text-8xl mb-1">Joni_5</h1>
+      <p class="text-xl md:text-2xl font-semibold" style="font-family:var(--font-heading);">Jonatan I. Caballero Pérez</p>
+      <p class="max-w-2xl mx-auto mt-2">T.FOH · Diseño/Ajuste de Sistemas · T.Monitores · Coordinación RF · T.Escenario · Backliner</p>
+      <!-- Botón principal -->
+      <a href="#contacto"
+      class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-black font-semibold px-10 py-3 rounded-full shadow-lg transition"
+      style="font-family:var(--font-heading);">
+      Contrátame
+      </a>
+      <!-- Enlace al CV -->
+      <a href="C.V. Jonatan Caballero-Madrid'25.pdf"  <!-- ajusta si lo tienes en /docs/ -->
+      target="_blank"
+      class="mt-4 inline-block underline text-amber-300 hover:text-amber-200"
+      download>
+      Descargar CV en PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SOBRE MÍ (texto completo proporcionado)
+  ====================================================== -->
+  <section id="sobre" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-4xl font-bold mb-6">¿Quién es Joni_5?</h2>
+      <p class="mb-4 leading-relaxed">Mi primera mezcla la hice en <strong>2008</strong> (monitores en Sonorama), todavía con consolas analógicas y un rack de compresores/EQs-gráficos que parecía una nevera para el técnico novel que era, que no llegaba a la ganancia de la mesa. Desde entonces he acompañado la evolución del directo: vi llegar las primeras mesas digitales&nbsp;Yamaha PM5D, Digico D5,&nbsp;los primeros line arrays (V-dosc) y la revolución de los sistemas de predicción/ajuste. Aprendí a alinear una PA con un FFT antes de que Smaart llevase el número 8.</p>
+      <p class="mb-4 leading-relaxed">Tras mis inicios en teatros y salas de Madrid, en 2010 me mudé a <strong>Barcelona</strong> para empaparme del ambiente de festivales como Primavera Sound o Sónar. Allí pasé más de un lustro mezclando en clubes como City Hall y Shôko, trabajando como freelance en empresas como FYR‑Screen, BlackAudio y puntualmente en Creative Technologies, Tour Serveis o TST So i Llums. Sufrí (y disfruté) la dinámica festivalera de la época: sin turnos (que era impensable) y con riders cambiando cada 30 minutos.</p>
+      <p class="leading-relaxed">Hoy vuelvo a Madrid con más de <strong>1 000 shows</strong> a la espalda, una maleta repleta de respuestas de impulso y la misma motivación que el primer día: hacer que cada nota/instrumento suene como debe y donde debe.</p>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       TRAYECTORIA (timeline extendida)
+  ====================================================== -->
+  <section id="experiencia" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Trayectoria</h2>
+      <div class="relative border-l-2 border-amber-500 pl-6 space-y-10">
+        <!-- 2020–Presente -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2020 – Presente · Freelance (Madrid)</h3>
+          <p class="text-sm text-gray-700 mb-1">Clientes: Albadalejo, Dushow, Mediapal, AV‑Medios, Fluge, ProyectArte, Spirox Sound…</p>
+          <p class="text-gray-600">Técnico de FOH y diseño/ajuste de sistemas (d&amp;b, Meyer, L‑Acoustics, MAGA, etc). Coordinación de equipos y medición con Smaart v.8 + RiTA.</p>
+          <p class="text-gray-600">Técnico Monitores. Coordinación de RF y corporativos de medio formato.</p>
+          <p class="text-gray-600">Control de Line Drive o procesador en cada caso: Lake Controller, d&b R1, Meyer‑Galileo, LA-Network, ArmoníaPlus, Prodigy (DirectOut), etc...</p>
+        </div>
+        <!-- 2010–2020 Barcelona -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2010 – 2020 · Freelance (Barcelona)</h3>
+          <p class="text-sm text-gray-700 mb-1">Clientes: FYR‑Screen, BlackAudio, Creative Technologies, TST So i Llums, Tour‑Serveis…</p>
+          <p class="text-gray-600">Técnico de Sala en City Hall y Shôko. Ajuste y diseño de PAs (festival Maremagnum con TW‑Audio, Festes de la Mercè, entre otros) Técnico y asistente de FOH.</p>
+          <p class="text-gray-600">Técnico de monitores en Primavera Sound, Backliner en Sónar, Técnico de escenario/volador de PAs en Cruïlla.</p>
+        </div>
+        <!-- 2010–2015 Madrid/Barcelona (máster) -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-1">2010 – 2015 · Madrid y Barcelona (Época del Máster Trade & Teatros)</h3>
+            <p class="text-sm text-gray-700 mb-1">Clientes: Madrid‑Destino, Grupo‑MEG, Alfasom, Easycheck, Avant‑Audio…</p>
+            <p class="text-gray-600">Máster en Sonido Directo (Trade‑Fluge) y responsable RF en musicales y obras de teatro (Madrid Destino, Grupo‑MEG). Fiestas de Tres Cantos. Puntualmente, bolos en la Sala Silikona</p>
+            <p class="text-gray-600">Participación en proyectos de 3D‑mapping de gran formato (Proyección 3D fachada Catedral de Santiago‑2012, Retransmisión de Final de la Champions desde Trafalgar Square‑2013), eventos corporativos internacionales…</p>
+        </div>
+        <!-- 2005–2010 Inicios -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-1">2005 – 2010 · Inicios profesionales</h3>
+          <p class="text-sm text-gray-700 mb-1">Empresas: RLS, Makers Actions, Milan Acústica…</p>
+          <p class="text-gray-600">Prácticas y primeros bolos en R.L.S (Durante ésta época, también desempeñaba la tarea de mozo de almacén en R.L.S; aprendiendo todo el mantenimiento/revisión/reparación que ello conlleva)</p>
+          <p class="text-gray-600">Anterior a esto, estuve como stage-hand con Makers Actions. Mozo de montaje, microfonista, técnico de escenario, volador de PAs…</p>
+          <p class="text-gray-600">Algunas experiencias en radio y otros entornos (Radio ELO Madrid-Sur)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- =====================================================
+     SERVICIOS
+====================================================== -->
+<section id="servicios" class="py-20 bg-white">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <h2 class="text-4xl font-bold mb-10 text-center">¿Qué puedo hacer por tu show?</h2>
+
+    <!-- Grid: 2 cols en md, 4 cols en lg -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="bg-gray-50 p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Técnico FOH & Diseño/Ajuste de PA</h3>
+        <p>Predicción (ArrayCalc, Soundvision, MAPP-3D, Ease Focus…) y ajuste con Smaart v8 / RiTA (equipo propio de medición).</p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Técnico de Monitores & RF</h3>
+        <p>In-ear personalizados, wedges y coordinación de espectro RF multicanal con WWB 7 y TinySA Ultra.</p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Técnico de escenario / microfonista</h3>
+        <p>Cambios de microfonía, patch y backline en ≤ 10 min. Rigging de los principales sistemas line-array.</p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-semibold mb-2">Técnico en Electrónica</h3>
+        <p>FP-Superior (2024). Diagnóstico y reparaciones de audio profesional en taller Fluge.</p>
+      </div>
+
+      <!-- Tarjeta centrada: ocupa 2 columnas y empieza en la 2 -->
+      <div class="bg-gray-50 p-6 rounded-2xl shadow
+                  lg:col-span-2 lg:col-start-2 text-center">
+        <h3 class="text-xl font-semibold mb-2">
+          Actualmente cursando Ingeniería Electrónica<br>
+          en la Universidad Politécnica de Madrid
+        </h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- =====================================================
+       EQUIPOS (gear)
+  ====================================================== -->
+  <section id="equipos" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Equipos/Gear que domino</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm leading-6">
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Sistemas:</strong> d&amp;b Series T/Y/V/J. Series GSL‑KSL. L‑Acoustics K1‑K2, Kara. Meyer Leopard/Lyon/Lina, y series anteriores M3D, MICA, MILO, M'elodie… (aún no he tenido la suerte de montar el Panther. Tiempo al tiempo...)</li>
+          <li><strong>Mesas:</strong> Yamaha CL/QL/DM7/PM‑Series. Digico Series-SD & Series S21-S31. Avid D-Show, Profile, SC-48, S6L. Midas Series-Pro & M32 (aún no incluyo H96). Allen&Heath SQ, dLive. Soundcraft Si/Vi.</li>
+        </ul>
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Procesadores:</strong> Lake, Galileo, ArmoníaPlus, R1 (con certificación de d&b), LA-Network Manager, Xilica, Marani, DBX-Driverack.</li>
+          <li><strong>Medición/Ajuste:</strong> Smaart v8 (licencia propia), RiTA 2.7 (con licencia y certificación), OpenSoundMeter.</li>
+          <li><strong>Diseño de Sistemas:</strong> d&b ArrayCalc (con certificación). L-Acoustics Soundvision. Meyer MAPP-3D. Ease Focus 3.</li>
+        </ul>
+        <ul class="list-disc list-inside bg-white p-6 rounded-xl shadow space-y-1">
+          <li><strong>Radiofrecuencia:</strong> WWB 7, WSM, Soundbase.app, TinySA Ultra (con equipo propio).</li>
+          <li><strong>Certificaciones:</strong> Dante Certificación Level 1‑2‑3 (por Audinate), d&amp;b ArrayCalc &amp; R1, Powersoft ArmoníaPlus (por SeeSound), Lake Controller (por Adagio Pro), Rational Acoustics Smaart v.8 (level-1) y TW-Audio (organizado por Soinua e impartido por Michael Hack y Tobias Goldman), Taller Operador RiTA (impartido por G.A.S).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       GALERÍA (10 imágenes de ejemplo)
+       - Copia/pega <figure> y cambia ruta (images/...) + leyenda.
+  ====================================================== -->
+  <section id="galeria" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Momentos 📸</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- 1 -->
+        <figure class="relative group"><img src="images/Selfie_CL5 - José Mercé_1.jpg" alt="Selfie_CL5" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Selfie_CL5</figcaption></figure>
+        <!-- 2 -->
+        <figure class="relative group"><img src="images/José Mercé - Alcalá de Henares_1.jpg" alt="José Mercé" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">José Mercé - Alcalá de Henares_FOH</figcaption></figure>
+        <!-- 3 -->
+        <figure class="relative group"><img src="images/José Mercé - Alcalá de Henares_2.jpg" alt="José Mercé" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">José Mercé - Alcalá de Henares_Monitor World</figcaption></figure>
+        <!-- 4 -->
+        <figure class="relative group"><img src="images/Evento L'Oreal_1.jpg" alt="L'Oréal" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">L'Oréal Summer Fest</figcaption></figure>
+        <!-- 5 -->
+        <figure class="relative group"><img src="images/Evento L'Oreal_2.jpg" alt="L'Oréal" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">L'Oréal Summer Fest</figcaption></figure>
+        <!-- 6 -->
+        <figure class="relative group"><img src="images/Diputación de Ciudad Real-Bombai_1.jpg" alt="Bombai" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Plaza Mayor · Bombai</figcaption></figure>
+        <!-- 7 -->
+        <figure class="relative group"><img src="images/Evento Camela - Manzanares_v.1.jpg" alt="Camela" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Camela · Manzanares</figcaption></figure>
+        <!-- 8 -->
+        <figure class="relative group"><img src="images/palacio cristal-jomo-1.jpg" alt="JOMO" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Festival JOMO - Palacio de Cristal</figcaption></figure>
+        <!-- 9 -->
+        <figure class="relative group"><img src="images/palacio cristal-jomo-2.jpg" alt="JOMO" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Festival JOMO - Palacio de Cristal</figcaption></figure>
+        <!-- 10 -->
+        <figure class="relative group"><img src="images/Gira Estopa'24.jpg" alt="Estopa'24" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Gira Estopa '24</figcaption></figure>
+        <!-- 11 -->
+        <figure class="relative group"><img src="images/Sala The Cube-Madrid_Evento Abacus-1.jpg" alt="Evento Abacus" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Evento Abacus - Sala The Cube_Madrid</figcaption></figure>
+        <!-- 12 -->
+        <figure class="relative group"><img src="images/Celtas Cortos - Argamasilla Calatrava_v.1.jpg" alt="Celtas Cortos" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Celtas Cortos · Argamasilla</figcaption></figure>
+        <!-- 13 -->
+        <figure class="relative group"><img src="images/Corporativo Arthrex_1.jpg" alt="Evento Arthrex" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Corp. Arthrex</figcaption></figure>
+        <!-- 14 -->
+        <figure class="relative group"><img src="images/Auditorio La Granja - Fiestas Ciudad Real-1.jpg" alt="Auditorio La Granja" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Fiestas Ciudad Real</figcaption></figure>
+        <!-- 15 -->
+        <figure class="relative group"><img src="images/Auditorio La Granja - Fiestas Ciudad Real-2.jpg" alt="Auditorio La Granja" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Fiestas Ciudad Real</figcaption></figure>
+        <!-- 16 -->
+        <figure class="relative group"><img src="images/Evento Amazon Days - Medinaceli_v.1.jpg" alt="Amazon Days" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Amazon Days</figcaption></figure>
+        <!-- 17 -->
+        <figure class="relative group"><img src="images/Evento BMW - La Salle-1.jpg" alt="Evento BMW" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Corporativo BMW · La Salle</figcaption></figure>
+        <!-- 18 -->
+        <figure class="relative group"><img src="images/fiesta navidad - Sanitas-1.jpg" alt="Navidad - Sanitas" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Fiesta Navidad - Sanitas</figcaption></figure>        
+        <!-- 19 -->
+        <figure class="relative group"><img src="images/fiesta navidad - Sanitas-2.jpg" alt="Navidad - Sanitas" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Fiesta Navidad - Sanitas</figcaption></figure>        
+        <!-- 20 -->
+        <figure class="relative group"><img src="images/Fiestas de Berja_1.jpg" alt="Berja" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Fiestas de Berja</figcaption></figure>
+        <!-- 21 -->
+        <figure class="relative group"><img src="images/fondo-1.jpg" alt="Diseño/Ajuste d&b GSL" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Diseño/Ajuste d&b GSL</figcaption></figure>
+        <!-- 22 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.1.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - PA K1+K2</figcaption></figure>
+        <!-- 23 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.2.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - PA-R K1+K2</figcaption></figure>
+        <!-- 24 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.3.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - PA-L K1+K2</figcaption></figure>
+        <!-- 25 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.4.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - Main Stage</figcaption></figure>
+        <!-- 26 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.5.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - Main Stage</figcaption></figure>
+        <!-- 27 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.6.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - Monitor World</figcaption></figure>
+        <!-- 28 -->
+        <figure class="relative group"><img src="images/I Love Reguetón'24_v.7.jpg" alt="ILR" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">I Love Reguetón - Monitor World</figcaption></figure>
+        <!-- 29 -->
+        <figure class="relative group"><img src="images/Royal Bliss - PCC Barcelona-1.jpg" alt="Royal Bliss" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Presentación Royal Bliss - PCC_Bcn</figcaption></figure>
+        <!-- 30 -->
+        <figure class="relative group"><img src="images/Royal Bliss - PCC Barcelona-2.jpg" alt="Royal Bliss" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Presentación Royal Bliss - PCC_Bcn</figcaption></figure>
+        <!-- 31 -->
+        <figure class="relative group"><img src="images/Royal Bliss - PCC Barcelona-3.jpg" alt="Royal Bliss" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Presentación Royal Bliss - PCC_Bcn</figcaption></figure>
+        <!-- 32 -->
+        <figure class="relative group"><img src="images/Royal Bliss - PCC Barcelona-4.jpg" alt="Royal Bliss" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Presentación Royal Bliss - PCC_Bcn</figcaption></figure>
+        <!-- 33 -->
+        <figure class="relative group"><img src="images/Selfie_CL5 - Finca Astilbe_1.jpg" alt="Selfie_Astilbe" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Selfie_Astilbe</figcaption></figure>
+        <!-- 34 -->
+        <figure class="relative group"><img src="images/Rueda de Phase.jpeg" alt="Que la fase te acompañe" class="rounded-xl shadow object-cover h-48 w-full"/><figcaption class="absolute inset-0 bg-black/60 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">Que la fase te acompañe</figcaption></figure>
+      </div>
+    <!--  <p class="text-center text-sm text-gray-600 mt-6">Para añadir más fotos copia &lt;figure&gt; y cambia la ruta + texto.</p>  -->
+    </div>
+  </section>
+
+  <!-- =====================================================
+       VÍDEOS (iframe YouTube/Vimeo)
+  ====================================================== -->
+  <section id="videos" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Vídeos 🎬</h2>
+      <!-- Vimeo (sustituye 123456789) -->
+      <div class="mb-10"><iframe src="https://player.vimeo.com/video/1080367010" class="w-full" style="aspect-ratio:16/9;" allow="fullscreen;picture-in-picture"></iframe></div>
+      <div class="mb-10"><iframe src="https://player.vimeo.com/video/1080366116" class="w-full" style="aspect-ratio:16/9;" allow="fullscreen;picture-in-picture"></iframe></div>
+      <!-- YouTube (sustituye AbCdEfGh) -->
+      <div><iframe
+        src="https://www.youtube.com/embed/gar9AI1SM2U?rel=0&modestbranding=1"
+        class="w-full" style="aspect-ratio:16/9;"
+        allow="accelerometer;encrypted-media;gyroscope;picture-in-picture"
+        allowfullscreen>
+      </iframe></div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FORMACIÓN
+  ====================================================== -->
+  <section id="formacion" class="py-20">
+    <div class="container mx-auto px-4 max-w-4xl"><h2 class="text-4xl font-bold mb-6">Formación & Certificaciones</h2><ul class="list-disc list-inside space-y-2"><li>CFGS Mantenimiento Electrónico (2022‑2024)</li><li>Máster en Sonido Directo (Trade‑Fluge, 2015)</li><li>CFGS Sonido para Espectáculos (2005)</li></ul></div>
+  </section>
+
+  <!-- =====================================================
+     DATOS EXTRA
+====================================================== -->
+<section id="extras" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2 class="text-4xl font-bold mb-10 text-center">Datos extra</h2>
+      <div class="grid md:grid-cols-2 gap-8 text-sm leading-6">
+        <!-- Columna 1 -->
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Idiomas:</strong> Inglés B2 (FCE); Francés intermedio; Catalán A1.</li>
+          <li><strong>Carnets:</strong> B, C1-C, BTP.</li>
+          <li><strong>Vehículo propio</strong> y disponibilidad nacional / internacional.</li>
+        </ul>
+  
+        <!-- Columna 2 -->
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Autónomo / Freelance</strong> autónomo con facturación española y países intracomunitarios (Alta en el ROI).</li>
+          <li><strong>Electrónica:</strong> titulado en mantenimiento electrónico; reparaciones analógicas / digitales; diseño DIY de hardware.</li>
+          <li><strong>Redes:</strong> nivel medio-alto en AoIP (Dante), VLANs, subnetting y QoS.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+<!-- =====================================================
+     CONTACTO
+====================================================== -->
+<section id="contacto" class="py-20 bg-white">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="text-4xl font-bold mb-6 text-center">Hablemos 👋</h2>
+
+    <form action="mailto:jocabpe@hotmail.es"
+          method="post" enctype="text/plain"
+          class="space-y-4" style="font-family:var(--font-heading);">
+      <input type="text"  name="nombre" placeholder="Nombre" required
+             class="w-full p-3 rounded-lg border" />
+      <input type="email" name="email"  placeholder="Email"  required
+             class="w-full p-3 rounded-lg border" />
+      <textarea name="mensaje" rows="5" placeholder="Cuéntame tu proyecto…"
+                class="w-full p-3 rounded-lg border"></textarea>
+      <button type="submit"
+              class="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg shadow-lg transition">
+        Enviar
+      </button>
+    </form>
+
+    <!-- Red de contactos centrada -->
+    <p class="text-center text-sm text-gray-600 mt-4">
+      También en
+      <a href="https://www.linkedin.com/in/jonatan_caballero" class="underline">LinkedIn</a> •
+      <a href="https://www.instagram.com/joni_howl"          class="underline">Instagram</a> •
+      <a href="https://www.facebook.com/jony.circuit"        class="underline">Facebook</a> •
+      E-mail <a href="mailto:jocabpe@hotmail.es" class="underline">jocabpe@hotmail.es</a> •
+      Tel. <strong>+34 672 597 553</strong>
+    </p>
+
+    <p class="text-center text-xs text-gray-400 mt-2">
+      © 2025 Jonatan I. Caballero Pérez
+    </p>
+  </div>
+</section>
+
+
+  <!-- =====================================================
+       SCRIPT: cerrar menú en móvil tras pulsar enlace
+  ====================================================== -->
+  <script>
+    document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.add('hidden')));
+  </script>
+</body>
+</html>
