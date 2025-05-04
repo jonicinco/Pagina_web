@@ -29,7 +29,10 @@
     h1{font-family:var(--font-title);}  
     h2,h3{font-family:var(--font-heading);}  
     body{font-family:var(--font-body);scroll-behavior:smooth;}
-  </style>
+    
+    /*  ⬇️ NUEVO — centra el texto de todas las leyendas de la galería  */
+    figure figcaption{ text-align:center; }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
@@ -399,5 +402,27 @@
   <script>
     document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.add('hidden')));
   </script>
+  
+  <!-- ================ LIGHTBOX (clic en miniatura) ================ -->
+  <div id="lightbox"
+     class="fixed inset-0 bg-black/80 flex items-center justify-center px-4 hidden z-50"
+     onclick="this.classList.add('hidden')">
+    <img id="lightbox-img" class="max-h-screen max-w-full rounded shadow-lg">
+  </div>
+  
+  <script>
+  /* Abre el lightbox con la imagen clicada */
+  function openLightbox(src){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.remove('hidden');
+  }
+  /* Activa el lightbox en todas las imágenes de la galería */
+  document.querySelectorAll('#galeria img').forEach(img=>{
+    img.classList.add('cursor-zoom-in');      // icono lupa
+    img.addEventListener('click',()=>openLightbox(img.src));
+  });
+  </script>
+  <!-- ================ /FIN LIGHTBOX ================================ -->
+
 </body>
 </html>
