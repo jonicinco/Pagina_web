@@ -12,36 +12,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joni_5 | Jonatan I. Caballero Pérez · Técnico de Sonido</title>
 
-  <!-- Tailwind (no instalación → perfecto para GitHub Pages) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuentes -->
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Karla:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" /> -->
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet"> --font-title:"Orbitron",sans-serif; -->
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> --font-title:"Audiowide",sans-serif; -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> --font-title:"Press Start 2P",cursive;
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet"> --font-title:"Rajdhani",sans-serif; -->
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet"> --font-title:"Orbit",sans-serif; -->
+  <!-- Google Fonts (solo las que realmente usas) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Karla:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
     /* === Variables globales === */
     :root{
-      --font-title:"Press Start 2P",sans-serif;   /* Fuente de Marca "Joni_5". Se pueden ir modificando con las que hay de links de Google */
-      --font-heading:"Karla",sans-serif; /* H2-H3 */
-      --font-body:"Inter",sans-serif;    /* Párrafos */
-      --hero-overlay:rgba(0,0,0,0.65);    /* Opacidad de oscurecido (ajusta a tu gusto) */
+      --font-title:"Press Start 2P",cursive;   /* Marca “Joni_5” */
+      --font-heading:"Karla",sans-serif;       /* H2‑H3 */
+      --font-body:"Inter",sans-serif;          /* Párrafos */
+      --hero-overlay:rgba(0,0,0,0.65);
     }
-    h1{font-family:var(--font-title);}  
-    h2,h3{font-family:var(--font-heading);}  
+    h1{font-family:var(--font-title);}
+    h2,h3{font-family:var(--font-heading);}
     body{font-family:var(--font-body);scroll-behavior:smooth;}
-    
-    /* Centra todas las leyendas de la galería */
-    figure figcaption{ text-align:center; 
-    pointer-events:none;   /* ⬅️ NUEVO: deja pasar el clic al <img> */}
 
-    /* Asegura la clase cursor‑zoom‑in aunque Tailwind no la genere dinámicamente */
+    /* Galería */
+    figure figcaption{ text-align:center; pointer-events:none; }
     .cursor-zoom-in{ cursor:zoom-in; }
   </style>
 </head>
+
 
 <body class="bg-gray-50 text-gray-900">
   
